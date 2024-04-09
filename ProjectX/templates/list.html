@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="listPage">
+    <h1 class="title">BLOG</h1>
+    <ul class="listPosts">
+        {% for post in posts %}
+
+        <li>
+            <a href="{% url 'blog_app:single-post' post.pk %}">
+
+            {% if post.image %}
+            <div class="image">
+                <img src="/media/{{ post.image }}" alt="" />
+            </div>
+            {%endif %}
+            <div class="infotext">
+                <h3>{{ post.title }}</h3>
+                <p>{{   post.content }}</p>
+            </div>
+        </li>
+        <html>
+            <body>
+                <h1>{{post.title}}</h1>
+            </body>
+        </html>
+    {% endfor %}
+</main>
+{% endblock content %}

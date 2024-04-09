@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
+</head>
+
+<link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
+
+{% block content %}
+
+<div class="list">
+    <div class="title-container">
+        <h1 class="title">Biblioteca</h1>
+        <div class="container">
+            <form class="buscador" method="GET">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+	{% for data in dataset %}
+
+    {% if query %}
+        <h2 class="search-results">Resultados de la búsqueda para "{{ query }}":</h2>
+    {% endif %}
+
+	<div class="book-info">
+        {% if request.user.usertype == 'editor' or request.user.usertype == 'admin' %}
+            <h2><a href="{% url 'biblioteca_app:libro-update' data.pk %}"> {{ data.title }}</a></h2>
+        {% else %}
+            <h2> {{ data.title }}</h2>
+        {% endif %}
+        <p class="author"><b>Autor:</b> {{ data.autor.name }} {{ data.autor.surname }}</p>
+        <p class="edition-year"><b>Año edición:</b> {{ data.year_of_edition }}</p>
+        <p class="theme"><b>Temática:</b> {{ data.tematica }}</p>
+        <p class="isbn"><b>ISBN:</b> {{ data.isbn }}</p>
+        <p class="publisher"><b>Editorial:</b> {{ data.editorial }}</p>
+        <p class="publisher-year"><b>Año editorial:</b> {{ data.year_editorial }}</p>
+        <p class="summary"><b>Resumen:</b> {{ data.resumen }}</p>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% if request.user.usertype == 'editor' or request.user.usertype == 'admin' %}
+        <a href="{% url 'biblioteca_app:create_view' %}">
+            <button type="button">Add Book</button>
+        </a>
+    {% endif %}
+
+{% endblock content %}

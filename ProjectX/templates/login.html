@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+</head>
+<body>
+<div class="register-form">
+    <button><a href="{% url 'users_app:user-create' %}">Register</a></button>
+</div>
+
+<div class="login-container">
+    <h2 class="login-title">Iniciar sesión</h2>
+    <form class="login-form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Iniciar sesión</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+{% endblock %}

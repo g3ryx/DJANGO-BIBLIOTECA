@@ -1,0 +1,78 @@
+.logout {
+    position: absolute;
+    right: 10px;
+    margin-right: 10px;
+}
+
+.title-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    margin-top: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.buscador {
+    display: flex;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.buscador input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+}
+
+.buscador button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buscador button:hover {
+    background-color: #484848;
+}
+
+.book-info {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.book-info h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.author,
+.edition-year,
+.theme,
+.isbn,
+.publisher,
+.publisher-year,
+.summary {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.search-results {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
